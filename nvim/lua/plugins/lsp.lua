@@ -214,6 +214,29 @@ return {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           },
+          ['<C-J>'] = cmp.mapping(function(fallback)
+            cmp.mapping.abort()
+            local copilot_keys = vim.fn["copilot#Accept"]()
+            if copilot_keys ~= "" then
+              vim.api.nvim_feedkeys(copilot_keys, "i", true)
+            else
+              fallback()
+            end
+          end, {
+            'i',
+            's',
+          }),
+          -- ["<C-J>"] = cmp.mapping(function(fallback)
+          --     cmp.mapping.abort()
+          --     local copilot_keys = vim.fn["copilot#Accept"]()
+          --     if copilot_keys ~= "" then
+          --       vim.api.nvim_feedkeys(copilot_keys, "i", true)
+          --     else
+          --       fallback()
+          --     end, {
+          --     "i",
+          -- "s",
+          -- }),
           -- ['<Tab>'] = cmp.mapping(function(fallback)
           --   if cmp.visible() then
           --     cmp.select_next_item()
