@@ -7,7 +7,7 @@ return {
       require('kanagawa').setup({
         keywordStyle = { bold = true },
       })
-      vim.cmd [[colorscheme kanagawa]]
+      pcall(vim.cmd, "colorscheme kanagawa")
     end,
   },
 
