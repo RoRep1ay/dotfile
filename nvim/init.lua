@@ -39,8 +39,9 @@ vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true,
 -- vim.g.copilot_assume_mapped = true
 -- vim.g.copilot_tab_fallback = ""
 
-vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
-vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
-vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
-vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
-vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
+pcall(vim.cmd, "silent! autocmd! filetypedetect BufRead,BufNewFile *.tf")
+pcall(vim.cmd, "autocmd BufRead,BufNewFile *.hcl set filetype=hcl")
+pcall(vim.cmd, "autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl")
+pcall(vim.cmd, "autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform")
+pcall(vim.cmd, "autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json")
+

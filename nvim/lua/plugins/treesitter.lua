@@ -9,7 +9,7 @@ return {
     opts = function()
       require('nvim-treesitter.configs').setup {
         ensure_installed = { 'lua', 'python', 'typescript', 'help', 'bash', 'css', 'json', 'yaml', 'html', 'terraform',
-          'dockerfile', 'javascript', },
+          'dockerfile', 'javascript', 'tsx', 'rust', 'go' },
 
         highlight = { enable = true },
         indent = { enable = true },

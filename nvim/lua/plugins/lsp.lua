@@ -68,7 +68,7 @@ return {
       -- Enable the following language servers
       -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
       -- Default LSP SErver, no need to custom
-      local servers = { 'tsserver', 'emmet_ls', 'dockerls', 'yamlls', 'terraformls', 'lua_ls', 'tailwindcss', 'bashls' }
+      local servers = { 'tsserver', 'emmet_ls', 'dockerls', 'yamlls', 'terraformls', 'lua_ls', 'tailwindcss', 'bashls', 'rust_analyzer', 'gopls' }
       -- Need to custom engine
       local custom_servers = { 'html', 'angularls', 'pyright' }
       local ensure_installed = {}

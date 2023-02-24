@@ -21,16 +21,16 @@ set("v", "<Leader>p", "\"+p", { silent = true })
 set("n", "<leader>h", "<cmd>:noh<cr>")
 
 -- diagnostic
-set('n', '[j', function ()
+set('n', '[e', function ()
 	vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
 end)
-set('n', ']j', function()
+set('n', ']e', function()
 	vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
 end)
-set('n', '[J', function ()
-	vim.diagnostic.goto_prev {}
+set('n', '[w', function ()
+	vim.diagnostic.goto_prev {  }
 end)
-set('n', ']J', function()
+set('n', ']w', function()
 	vim.diagnostic.goto_next {}
 end)
 set('n', '<leader>Q', vim.diagnostic.open_float)
@@ -41,9 +41,10 @@ set('n', '<leader>f', require('telescope.builtin').find_files, { desc = '[S]earc
 set('n', '<leader>go', require('telescope.builtin').git_status, { desc = 'Open Changed Files' })
 set('n', '<leader>sb', function() require('telescope.builtin').buffers { previewer = false } end,
 	{ desc = 'Open Buffer File' })
-set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+set('n', '<leader>sh', require('telescope.builtin').search_history, { desc = '[S]earch [H]istory' })
+set('n', '<leader>sj', require('telescope.builtin').jumplist, { desc = '[S]earch [J]umplist' })
 set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-set('n', '<leader>st', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+set({ 'n', 'v'}, '<leader>st', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 set('n', '<leader>o', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
