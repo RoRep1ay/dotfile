@@ -39,12 +39,12 @@ set('n', '<leader>q', vim.diagnostic.setloclist)
 -- -- Telescope
 set('n', '<leader>f', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 set('n', '<leader>go', require('telescope.builtin').git_status, { desc = 'Open Changed Files' })
-set('n', '<leader>sb', function() require('telescope.builtin').buffers { previewer = false } end,
+set('n', '<leader>sb', function() require('telescope.builtin').buffers { previewer = true } end,
 	{ desc = 'Open Buffer File' })
 set('n', '<leader>sh', require('telescope.builtin').search_history, { desc = '[S]earch [H]istory' })
 set('n', '<leader>sj', require('telescope.builtin').jumplist, { desc = '[S]earch [J]umplist' })
 set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-set({ 'n', 'v'}, '<leader>st', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+set({ 'n', 'v'}, '<leader>st', function() require('telescope.builtin').live_grep { path_display = { shorten = { len = 3, exclude = { 0, -1, -2, -3 } },}, glob_pattern = { '!**/package-lock.json', '!**/static/local_cache/**' }} end, { desc = '[S]earch by [G]rep' })
 set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 set('n', '<leader>o', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

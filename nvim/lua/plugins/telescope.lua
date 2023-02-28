@@ -13,6 +13,25 @@ return {
         }
       },
       defaults = {
+        layout_strategy = "vertical",
+        -- path_display = {
+        --   shorten = {
+        --     len = 3, exclude = { 0, -1, -2, -3 }
+        --   },
+        --   truncate = 3,
+        -- },
+        layout_config = {
+          width = 0.9,
+          height = 0.9,
+          -- prompt_position = "top",
+          -- preview_cutoff = 120,
+          -- horizontal = {
+          --   mirror = false
+          -- },
+          -- vertical = {
+          --   mirror = false,
+          -- },
+        },
         mappings = {
           i = {
             ['<C-u>'] = false,
