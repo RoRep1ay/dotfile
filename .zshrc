@@ -106,26 +106,68 @@ alias dev="cd ~/Developer"
 alias v="nvim"
 alias vconfig="nvim /Users/sojimmynea/.config/nvim/"
 
-alias start-api="cd ~/Developer/ship24/api && npm run start:dev"
-alias start-dapi="cd ~/Developer/ship24/dashboard-api && npm run start:dev"
-alias start-dwebsite="cd ~/Developer/ship24/dashboard-website && npm run start:dev"
-alias start-crawler="cd ~/Developer/ship24/crawler && npm run start:dev"
-alias start-website="cd ~/Developer/ship24/website && npm run start:dev"
-alias start="npm run start:dev"
-
-export PATH=~/.npm-global/bin:$PATH
+# export PATH=~/.npm-global/bin:$PATH
 source /Users/sojimmynea/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH=/Users/sojimmynea/.local/bin:$PATH
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+# export PATH=/Users/sojimmynea/.local/bin:$PATH
 
+# NODE Config
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
+
+function sv() {
+    source .venv/bin/activate &&
+    tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+}
+
+if [ -n "$VIRTUAL_ENV" ]; then
+    source $VIRTUAL_ENV/bin/activate;
+fi
+#
 
 # pnpm
 export PNPM_HOME="/Users/sojimmynea/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
 
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+# [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+#
+# nvm use default
+
+# Lazyload Node.js - NVM and npm
+# lazynvm() {
+#   unset -f nvm node npm yarn
+#   export NVM_DIR=~/.nvm
+#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#   nvm use default
+# }
+
+# nvm() {
+#   lazynvm
+#   nvm $@
+# }
+#
+# node() {
+#   lazynvm
+#   node $@
+# }
+#
+# npm() {
+#   lazynvm
+#   npm $@
+# }
+#
+# yarn() {
+#   lazynvm
+#   export PATH="$PATH:`yarn global bin`"
+#   yarn $@
+# }
 # Load Angular CLI autocompletion.
 #source <(ng completion script)
 
+export PATH="$PATH:`yarn global bin`"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"

@@ -10,3 +10,5 @@ vim.g.copilot_assume_mapped = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+pcall(vim.cmd, "packadd Cfilter")
+
