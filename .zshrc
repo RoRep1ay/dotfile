@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias dev="cd ~/Developer"
+alias work="cd ~/Work"
 alias v="nvim"
 alias vconfig="nvim /Users/sojimmynea/.config/nvim/"
 
@@ -171,3 +172,4 @@ export PATH="$PNPM_HOME:$PATH"
 
 export PATH="$PATH:`yarn global bin`"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+alias ac="source .venv/bin/activate"

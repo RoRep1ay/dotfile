@@ -33,6 +33,10 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-L>", '<Plug>(copilot-next)', { silent = true })
+vim.api.nvim_set_keymap("i", "<C-H>", '<Plug>(copilot-previous)', { silent = true })
+
+
 
 
 -- vim.g.copilot_no_tab_map = true
@@ -44,4 +48,7 @@ pcall(vim.cmd, "autocmd BufRead,BufNewFile *.hcl set filetype=hcl")
 pcall(vim.cmd, "autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl")
 pcall(vim.cmd, "autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform")
 pcall(vim.cmd, "autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json")
+
+
+pcall(vim.cmd, "colorscheme nightfly")
 
